@@ -1,15 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'dtca-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Kompotentin otsikko on tässä';
-  message = '';
-  onButtonClick() {
-    console.log('Moikka');
-    this.message = 'Hei';
-  }
+  title = 'Kontakti sovellus 2019';
 }
+
