@@ -8,6 +8,7 @@ import { ContactListItemComponent } from './contact/contact-list/contact-list-it
 import { ContactDetailComponent } from './contact/contact-detail/contact-detail.component';
 import {MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, MatButtonToggleModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatInputModule,
     MatFormFieldModule,
     MatButtonToggleModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
