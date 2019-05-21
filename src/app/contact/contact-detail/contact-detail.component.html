@@ -2,5 +2,90 @@
 <mat-card>XXX</mat-card>
 <mat-card>YYY</mat-card>
 <mat-card>ZZZ</mat-card>
-  <button mat-flat-button color="warn">click me!<i class="material-icons">favorite</i></button>
+  <!--<button mat-flat-button color="warn">click me!<i class="material-icons">favorite</i></button>!-->
 </p>
+
+<mat-card>
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <div fxLayout="column" class="width-detail">
+
+      <mat-form-field>
+        <label>
+          <input matInput [(ngModel)]="contact.firstName"
+                 type="text"
+                 required maxlength="=12"
+                 placeholder="First name">
+        </label>
+      </mat-form-field>
+
+      <mat-form-field>
+        <label>
+          <input matInput [(ngModel)]="contact.lastName"
+                 type="text"
+                 required maxlength="=12"
+                 placeholder="Last name">
+        </label>
+      </mat-form-field>
+
+      <mat-form-field>
+        <label>
+          <input matInput [(ngModel)]="contact.eMail"
+                 type="text"
+                 required maxlength="=12"
+                 placeholder="eMail">
+        </label>
+      </mat-form-field>
+
+      <mat-form-field>
+        <label>
+          <input matInput [(ngModel)]="contact.phoneNumber"
+                 type="text"
+                 required maxlength="=12"
+                 placeholder="Phone number">
+        </label>
+      </mat-form-field>
+
+      <mat-form-field>
+        <label>
+          <input matInput [(ngModel)]="contact.address.street"
+                 type="text"
+                 required maxlength="=12"
+                 placeholder="Street">
+        </label>
+      </mat-form-field>
+
+      <mat-form-field>
+        <label>
+          <input matInput [(ngModel)]="contact.address.city"
+                 type="text"
+                 required maxlength="=12"
+                 placeholder="City">
+        </label>
+      </mat-form-field>
+
+      <mat-form-field>
+        <label>
+          <input matInput [(ngModel)]="contact.address.postalCode"
+                 type="text"
+                 required maxlength="=12"
+                 placeholder="Postal Code">
+        </label>
+      </mat-form-field>
+
+      <mat-form-field>
+        <label>
+          <input matInput [(ngModel)]="contact.address.country"
+                 type="text"
+                 required maxlength="=12"
+                 placeholder="Country">
+        </label>
+      </mat-form-field>
+
+    </div>
+  </div>
+</mat-card>
+
+
+
+
+
