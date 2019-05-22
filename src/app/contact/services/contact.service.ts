@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Contact} from '../contact';
 import {ContactHttpService} from './contact-http.service';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,13 @@ export class ContactService {
       new  Contact( 'Matti', 'Koivunen', '040162534')
     ];
     this.contacts.push(new Contact( 'Kalevi', 'Mäntynen', '040615243'));*/
-    }
-    get(): Contact[] {
-      // return this.contacts;
-      console.log(this.contactHttpService.get());
-      return [];
-    }
+    // }
+    // get(): Contact[] {
+    // return this.contacts;
+    // console.log(this.contactHttpService.get());
+    // return [];
   }
+    get(): Observable<Contact[]> {
+    return  this.contactHttpService.get();
+  }
+}
