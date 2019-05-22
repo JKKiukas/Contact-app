@@ -1,7 +1,21 @@
+<mat-toolbar>
+  <button mat-fab color="accent"><i class="material-icons">list</i>
+  </button>
+  Contacts
+</mat-toolbar>
+
 <label>
   <input value="{{selectedContactName}}">
 </label>
 
-<div *ngFor="let contact of contacts">
-  <dtca-contact-list-item [contact]="contact" (selected)="onContactSelected($event)"></dtca-contact-list-item>
-</div>
+<mat-card *ngFor="let c of contacts">
+  <dtca-contact-list-item
+  [contact]="c"
+  (selected)="onContactSelected($event)">
+</dtca-contact-list-item>
+</mat-card>
+
+<p></p>
+
+<button mat-fab color="accent"><i class="material-icons">add</i>
+</button>

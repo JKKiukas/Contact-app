@@ -1,3 +1,10 @@
 <div (click)="onSelect(contact)">
-  {{contact.firstName}} {{contact.lastName}} {{contact.phoneNumber}}
+  <p></p>
+  <ngx-avatar name = "{{contact.firstName}} {{contact.lastName}}"></ngx-avatar>
+    {{contact.firstName}} {{contact.lastName}}
+</div>
+
+<div>
+  {{contact.phoneNumber}}
+  <p></p>
 </div>

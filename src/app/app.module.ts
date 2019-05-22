@@ -10,6 +10,8 @@ import {MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, MatB
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
+import {AvatarModule} from 'ngx-avatar';
+import {MatToolbarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {HttpClientModule} from '@angular/common/http';
     MatButtonToggleModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AvatarModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
