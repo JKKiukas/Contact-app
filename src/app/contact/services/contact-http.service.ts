@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Contact} from '../contact';
 import {map} from 'rxjs/operators';
 import {environment} from '../../../environments/environment';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,11 @@ export class ContactHttpService {
      return contacts as Contact[];
      })
     );
+  }
+
+  getById(id): Observable<Contact> {
+    return  this.http.get(this.url + '/' + id).pipe(map(response => {
+      return response as Contact;
+    }));
   }
 }
