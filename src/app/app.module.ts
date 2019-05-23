@@ -5,13 +5,22 @@ import {FormsModule} from '@angular/forms';
 import { ContactListComponent } from './contact/contact-list/contact-list.component';
 import { ContactListItemComponent } from './contact/contact-list/contact-list-item/contact-list-item.component';
 import { ContactDetailComponent } from './contact/contact-detail/contact-detail.component';
-import {MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, MatButtonToggleModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatInputModule,
+  MatFormFieldModule,
+  MatCardModule,
+  MatButtonToggleModule,
+  MatIconModule,
+  MatSidenavModule, MatDividerModule, MatListModule
+} from '@angular/material';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {AvatarModule} from 'ngx-avatar';
 import {MatToolbarModule} from '@angular/material';
 import {RouterModule, Routes} from '@angular/router';
+import { ToolbarComponent } from './contact/toolbar/toolbar.component';
 
 const appRoutes: Routes = [
   {path: 'contacts', component: ContactListComponent},
@@ -25,7 +34,8 @@ const appRoutes: Routes = [
     AppComponent,
     ContactListComponent,
     ContactListItemComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +52,11 @@ const appRoutes: Routes = [
     MatToolbarModule,
     FlexModule,
     RouterModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MatIconModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

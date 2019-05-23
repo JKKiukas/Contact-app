@@ -1,3 +1,42 @@
 <!--<dtca-contact-list></dtca-contact-list>!-->
 <!--<dtca-contact-detail></dtca-contact-detail>!-->
 <router-outlet></router-outlet>
+
+<mat-sidenav-container class="dtca-sidenav-container">
+  <mat-sidenav #sidenav [mode]="'over'" [opened]="false" class="dtca-sidenav">
+    <!-- Sidenav content -->
+    <div>
+      <div fxLayout="column" fxLayoutAlign="center center" class="dtca-sidenav-user-area">
+        <div>
+          <mat-icon class="dtca-sidenav-avatar" color="primary">account_circle</mat-icon>
+        </div>
+        <div>
+          <span>Jaana Peltonen</span>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <mat-nav-list>
+          <mat-list-item>
+            <a routerLink="login" (click)="sidenav.toggle()">Sign out</a>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+    </div>
+  </mat-sidenav>
+  <div fxFlexFill class="dtca-sidenav-content">
+    <!-- App content -->
+    <mat-toolbar color="primary">
+
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon class="mat-18">menu</mat-icon>
+      </button>
+      <span>Contacts</span>
+    </mat-toolbar>
+    <!-- <dtca-toolbar (MenuClick)="sidenav.toggle()"></dtca-toolbar> -->
+    <div class="dtca-app-container">
+      <!-- App -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-sidenav-container>
