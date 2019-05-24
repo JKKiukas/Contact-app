@@ -7,6 +7,7 @@ export class Contact {
   postalCode: string;
   city: string;
   country: string;
+  id: string;
   // address: IAddress;
 
 

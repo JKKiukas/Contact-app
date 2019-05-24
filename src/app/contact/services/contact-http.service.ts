@@ -11,6 +11,7 @@ import {Observable} from 'rxjs';
 })
 export class ContactHttpService {
   private url: string;
+  private Contact: any;
 
   constructor(private  http: HttpClient) {
     // this.url = 'http://localhost:3000/contacts';
@@ -45,5 +46,11 @@ export class ContactHttpService {
     return  this.http.get(this.url + '/' + id).pipe(map(response => {
       return response as Contact;
     }));
+  }
+
+  // tslint:disable-next-line:no-shadowed-variable
+  delete(Contact: any) {
+    this.Contact = Contact;
+    return undefined;
   }
 }
