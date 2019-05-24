@@ -1,1 +1,15 @@
+mat-card {
+  width: 80vw;
+  margin: auto;
+  display: block;
+}
 
+mat-nav-list {
+  padding: 0;
+}
+
+.addButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

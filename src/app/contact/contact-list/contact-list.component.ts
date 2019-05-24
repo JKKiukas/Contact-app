@@ -4,6 +4,7 @@ import {ContactService} from '../services/contact.service';
 import {Router} from '@angular/router';
 import {ToolbarOptions} from '../toolbar/toolbar-options';
 import {ToolbarAction} from '../toolbar/toolbar-action';
+import {ToolbarService} from '../services/toolbar-service';
 
 @Component({
   selector: 'dtca-contact-list',
@@ -13,11 +14,11 @@ import {ToolbarAction} from '../toolbar/toolbar-action';
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
   selectedContactName: string;
-  private toolbar: any;
+  // private toolbar: any;
   editingEnabled: boolean;
   private onEdit: any;
 
-  constructor(private contactService: ContactService, private router: Router) {
+  constructor(private contactService: ContactService, private router: Router, private toolbar: ToolbarService) {
     this.contacts = [];
     this.selectedContactName = '';
   }
@@ -37,11 +38,11 @@ export class ContactListComponent implements OnInit {
     // this.contacts = this.contactService.get();
     // console.log(this.contacts);
 
-    this.contactService.get().subscribe((response => {
+    this.contactService.get().subscribe(response => {
       this.contacts = response;
       console.log(response);
-    }));
-    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Contacts',
+    });
+    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Contacts App',
       [new ToolbarAction(this.onEdit.bind(this), 'icon')]));
   }
 
@@ -51,6 +52,10 @@ export class ContactListComponent implements OnInit {
   }
 
   onContactSelect(contact) {
-    this.router.navigate(['/contacts/' + contact.id]);
+    this.router.navigate(['/contacts/' + contact.id], {skipLocationChange: true});
+  }
+
+  onCreateNew() {
+    this.router.navigate(['/contacts/new']);
   }
 }
