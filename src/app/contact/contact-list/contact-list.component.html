@@ -8,10 +8,12 @@
 <mat-card
   *ngFor="let c of contacts" fxLayout="row" fxLayoutAlign="left middle" class="text-style">
   <ngx-avatar name="{{c.firstName}} {{c.lastName}}"></ngx-avatar>
+  <mat-nav-list class="dtca-contact-list">
   <dtca-contact-list-item
   [contact]="c"
   (selected)="onContactSelect($event)">
 </dtca-contact-list-item>
+  </mat-nav-list>
 </mat-card>
 
 <p></p>
@@ -19,3 +21,4 @@
 <button mat-fab color="accent"><i class="material-icons">add</i>
 </button>
 </mat-card>
+

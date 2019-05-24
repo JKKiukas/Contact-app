@@ -1,11 +1,13 @@
+<mat-list-item (click)="onSelect(contact)" class="dtca-contact-list-item">
 <div (click)="onSelect(contact)">
   <p></p>
 </div>
 
 <div>
   {{contact.firstName}} {{contact.lastName}}
-</div>
-<div>
+  <p>
   {{contact.phoneNumber}}
-  <p></p>
+  </p>
 </div>
+</mat-list-item>
+
