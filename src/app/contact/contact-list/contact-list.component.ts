@@ -42,7 +42,7 @@ export class ContactListComponent implements OnInit {
       this.contacts = response;
       console.log(response);
     });
-    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Contacts App',
+    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Contacts',
       [new ToolbarAction(this.onEdit.bind(this), 'icon')]));
   }
 

@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ContactService} from '../services/contact.service';
 import {ToolbarService} from '../services/toolbar-service';
 import {ToolbarOptions} from '../toolbar/toolbar-options';
-// import {ToolbarAction} from '../toolbar/toolbar-action';
+import {ToolbarAction} from '../toolbar/toolbar-action';
 
 @Component({
   selector: 'dtca-contact-detail',
@@ -22,61 +22,70 @@ export class ContactDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contactId = this.route.snapshot.paramMap.get('id');
-    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact', []));
+    this.contactId = this.route.snapshot.params.id;
+    let toolbarActions: ToolbarAction[];
 
     if (isNaN(this.contactId)) {
-      console.log(this.contactId);
+      toolbarActions = [];
     } else {
+      toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
       this.contactService.getContactById(this.contactId).subscribe(response => {
         this.contact = response;
       });
     }
 
-    // let toolbarActions: ToolbarAction[];
-
-    // if (this.contactId == null) {
-      // Create contact
-      // this.editingEnabled = true;
-    // toolbarActions = [];
-    // } else {
-      // View /Edit contact
-    // toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
-
-    // this.contactService.getContactById(this.contactId).subscribe(response => {
-    // this.contact = response;
-    // console.log(this.contact);
-    // }, error => {
-    // console.error('Getting contact failed.');
-    // console.error(error);
-    // this.router.navigate(['/contacts']);
-    // });
-    }
-
-  // this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact',
-  //  [new ToolbarAction(this.onEdit(), 'edit')]));
-  // this.contactService.getContactById(this.contactId).subscribe(response => {
-  //  this.contact = response;
-  //  console.log(this.contact);
-  // });
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contacts', toolbarActions));
   }
 
-// onEdit() {
-//  let toolbarActions: ToolbarAction[];
-//  this.editingEnabled = !this.editingEnabled;
-//  if (this.editingEnabled === true) {
+  onEdit() {
+    let toolbarActions: ToolbarAction[];
+    this.editingEnabled = !this.editingEnabled;
+    if (this.editingEnabled === true) {
       // Edit mode on
-//    console.log('Edit mode enabled');
-//    toolbarActions = [
-//      new ToolbarAction(this.onDelete.bind(this), 'delete'),
-//      new ToolbarAction(this.onEdit.bind(this), 'edit')
-//    ];
-//  } else {
-//    // Edit mode off
-//    console.log('Edit mode disabled');
-//    toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
-//  }
-//  this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact', toolbarActions));
+      console.log('Edit mode enabled');
+      toolbarActions = [
+        new ToolbarAction(this.onDelete.bind(this), 'delete'),
+        new ToolbarAction(this.onEdit.bind(this), 'edit')
+      ];
+    } else {
+      // Edit mode off
+      console.log('Edit mode disabled');
+      toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
+    }
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contacts', toolbarActions));
+  }
+
+  onDelete() {
+
+  }
+}
+
+// let toolbarActions: ToolbarAction[];
+
+// if (this.contactId == null) {
+// Create contact
+// this.editingEnabled = true;
+// toolbarActions = [];
+// } else {
+// View /Edit contact
+// toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
+
+// this.contactService.getContactById(this.contactId).subscribe(response => {
+// this.contact = response;
+// console.log(this.contact);
+// }, error => {
+// console.error('Getting contact failed.');
+// console.error(error);
+// this.router.navigate(['/contacts']);
+// });
+// }
+
+// this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact',
+//  [new ToolbarAction(this.onEdit(), 'edit')]));
+// this.contactService.getContactById(this.contactId).subscribe(response => {
+//  this.contact = response;
+//  console.log(this.contact);
+// });
 // }
 
 // onDelete() {

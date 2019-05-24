@@ -6,8 +6,8 @@
   <button *ngIf="options.isBackEnabled" mat-icon-button (click)="onNavigateBack()">
     <mat-icon class="mat-18">arrow_back</mat-icon>
   </button>
-  <span>{{options.title}}</span>
-    <button mat-icon-button (click)="action.runAction()" *ngFor="let action of options.actions">
-    <mat-icon>{{action.icon}}</mat-icon>
+  <span class="toolbarTitle">{{options.title}}</span>
+    <button mat-icon-button *ngFor="let action of options.actions" (click)="action.runAction()">
+      <i class="material-icons">{{action.icon}}</i>
   </button>
 </mat-toolbar>
