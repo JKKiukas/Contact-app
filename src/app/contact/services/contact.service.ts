@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Contact} from '../contact';
 import {ContactHttpService} from './contact-http.service';
 import {Observable} from 'rxjs';
@@ -22,8 +22,9 @@ export class ContactService {
     // console.log(this.contactHttpService.get());
     // return [];
   }
-    get(): Observable<Contact[]> {
-    return  this.contactHttpService.get();
+
+  get(): Observable<Contact[]> {
+    return this.contactHttpService.get();
   }
 
   getContactById(id): Observable<Contact> {
@@ -32,5 +33,13 @@ export class ContactService {
 
   deleteContact(contact): Observable<any> {
     return this.contactHttpService.delete(contact);
+  }
+
+  createContact(contact): Observable<Contact> {
+    return this.contactHttpService.post(contact);
+  }
+
+  updateContact(contact): Observable<Contact> {
+    return this.contactHttpService.put(contact);
   }
 }

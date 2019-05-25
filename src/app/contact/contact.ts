@@ -7,12 +7,12 @@ export class Contact {
   postalCode: string;
   city: string;
   country: string;
-  id: string;
+  id: number;
   // address: IAddress;
 
 
   constructor(firstName?: string, lastName?: string, phoneNumber?: string, eMail?: string, street?: string, postalCode?: string,
-              city?: string, country?: string) {
+              city?: string, country?: string, id?: number) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.phoneNumber = phoneNumber;
@@ -21,6 +21,7 @@ export class Contact {
     this.postalCode = postalCode;
     this.city = city;
     this.country = country;
+    this.id = id;
     // this.address = {};
   }
     // public setAddress(street, postalCode, city, country) {

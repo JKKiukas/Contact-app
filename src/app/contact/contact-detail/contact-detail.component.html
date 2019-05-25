@@ -24,6 +24,16 @@
 
       <mat-form-field>
         <label>
+          <input matInput [(ngModel)]="contact.id"
+                 type="text"
+                 required maxlength="=12"
+                 placeholder="id"
+                 [readonly]="!editingEnabled">
+        </label>
+      </mat-form-field>
+
+      <mat-form-field>
+        <label>
           <input matInput [(ngModel)]="contact.eMail"
                  type="text"
                  required maxlength="=12"
@@ -87,7 +97,7 @@
       </div>
     </div>
   </div>
-  <button mat-fab class="createButton">
+  <button mat-fab class="createButton" *ngIf="editingEnabled==true" (click)="onSave()">
     <i class="material-icons">check</i>
   </button>
 </mat-card>

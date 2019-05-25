@@ -16,22 +16,22 @@ export class ContactListComponent implements OnInit {
   selectedContactName: string;
   // private toolbar: any;
   editingEnabled: boolean;
-  private onEdit: any;
+  onEdit: any;
 
   constructor(private contactService: ContactService, private router: Router, private toolbar: ToolbarService) {
     this.contacts = [];
     this.selectedContactName = '';
   }
 
-  onContactSelected(contact: Contact): void {
-    console.log(contact);
+  // onContactSelected(contact: Contact): void {
+  // console.log(contact);
     // this.selectedContactName = contact.firstName + ' ' + contact.lastName + ' ' + contact.phoneNumber;
     // alert(contact.firstName + ' ' + contact.lastName + ' ' + contact.phoneNumber);
     // console.log(this.router.navigate(['/contacts', contact.id]));
     // this.router.navigate(['/contacts', contact.id]);
-    console.log(this.router.navigate(['/contacts', contact.id]));
-    this.router.navigate(['/contacts', contact.id]);
-  }
+  // console.log(this.router.navigate(['/contacts', contact.id]));
+  // this.router.navigate(['/contacts', contact.id]);
+  // }
 
 
   ngOnInit() {

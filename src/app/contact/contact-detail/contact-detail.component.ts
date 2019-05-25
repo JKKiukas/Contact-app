@@ -63,6 +63,20 @@ export class ContactDetailComponent implements OnInit {
       this.router.navigate(['/contacts']);
     });
   }
+
+  onSave() {
+    if (isNaN(this.contactId)) {
+      this.contactService.createContact(this.contact).subscribe(response => {
+        console.log(response);
+        this.router.navigate(['/contacts']);
+      });
+    } else {
+      this.contactService.updateContact(this.contact).subscribe(response => {
+        this.contact = response;
+        this.editingEnabled = false;
+      });
+    }
+  }
 }
 
 // let toolbarActions: ToolbarAction[];
