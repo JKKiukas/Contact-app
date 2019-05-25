@@ -10,10 +10,10 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ContactHttpService {
-  private url: string;
-  private Contact: any;
+  url: string;
+  Contact: any;
 
-  constructor(private  http: HttpClient) {
+  constructor(private  httpClient: HttpClient) {
     // this.url = 'http://localhost:3000/contacts';
     /* Both of these endpointUrl works*/
      this.url = environment.endpointUrl + 'contacts';
@@ -33,24 +33,28 @@ export class ContactHttpService {
   // })
   // );
 
-  get() {
-     return this.http.get<Contact[]>(this.url)
-     .pipe(
-     map(contacts => {
-     return contacts as Contact[];
-     })
-    );
+  // get() {
+  // return this.httpClient.get<Contact[]>(this.url)
+  // .pipe(
+  // map(contacts => {
+  // return contacts as Contact[];
+  // })
+  // );
+  // }
+
+  get(): Observable<Contact[]> {
+    return this.httpClient.get(this.url).pipe(map(response => {
+      return response as Contact[];
+    }));
   }
 
   getById(id): Observable<Contact> {
-    return  this.http.get(this.url + '/' + id).pipe(map(response => {
+    return  this.httpClient.get(this.url + '/' + id).pipe(map(response => {
       return response as Contact;
     }));
   }
 
-  // tslint:disable-next-line:no-shadowed-variable
-  delete(Contact: any) {
-    this.Contact = Contact;
-    return undefined;
+  delete(contact): Observable<any> {
+    return this.httpClient.delete(this.url + '/' + contact.id);
   }
 }

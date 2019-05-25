@@ -13,12 +13,13 @@ import {ToolbarAction} from '../toolbar/toolbar-action';
 })
 export class ContactDetailComponent implements OnInit {
   contact: Contact;
-  contactId: any;
+  contactId: number;
   editingEnabled: boolean;
 
   constructor(private router: Router, private  route: ActivatedRoute,
               private contactService: ContactService, private  toolbar: ToolbarService) {
     this.contact = new Contact();
+    this.editingEnabled = false;
   }
 
   ngOnInit() {
@@ -26,6 +27,7 @@ export class ContactDetailComponent implements OnInit {
     let toolbarActions: ToolbarAction[];
 
     if (isNaN(this.contactId)) {
+      this.editingEnabled = true;
       toolbarActions = [];
     } else {
       toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
@@ -42,21 +44,24 @@ export class ContactDetailComponent implements OnInit {
     this.editingEnabled = !this.editingEnabled;
     if (this.editingEnabled === true) {
       // Edit mode on
-      console.log('Edit mode enabled');
+      // console.log('Edit mode enabled');
       toolbarActions = [
         new ToolbarAction(this.onDelete.bind(this), 'delete'),
         new ToolbarAction(this.onEdit.bind(this), 'edit')
       ];
     } else {
       // Edit mode off
-      console.log('Edit mode disabled');
+      // console.log('Edit mode disabled');
       toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
     }
     this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contacts', toolbarActions));
   }
 
   onDelete() {
-
+    this.editingEnabled = false;
+    this.contactService.deleteContact(this.contact).subscribe(() => {
+      this.router.navigate(['/contacts']);
+    });
   }
 }
 

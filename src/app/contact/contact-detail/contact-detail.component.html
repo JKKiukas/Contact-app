@@ -7,7 +7,8 @@
           <input matInput [(ngModel)]="contact.firstName"
                  type="text"
                  required maxlength="=12"
-                 placeholder="First name">
+                 placeholder="First name"
+                 [readonly]="!editingEnabled">
         </label>
       </mat-form-field>
 
@@ -16,7 +17,8 @@
           <input matInput [(ngModel)]="contact.lastName"
                  type="text"
                  required maxlength="=12"
-                 placeholder="Last name">
+                 placeholder="Last name"
+                 [readonly]="!editingEnabled">
         </label>
       </mat-form-field>
 
@@ -25,7 +27,8 @@
           <input matInput [(ngModel)]="contact.eMail"
                  type="text"
                  required maxlength="=12"
-                 placeholder="eMail">
+                 placeholder="eMail"
+                 [readonly]="!editingEnabled">
         </label>
       </mat-form-field>
 
@@ -34,7 +37,8 @@
           <input matInput [(ngModel)]="contact.phoneNumber"
                  type="text"
                  required maxlength="=12"
-                 placeholder="Phone number">
+                 placeholder="Phone number"
+                 [readonly]="!editingEnabled">
         </label>
       </mat-form-field>
 
@@ -43,7 +47,8 @@
           <input matInput [(ngModel)]="contact.street"
                  type="text"
                  required maxlength="=12"
-                 placeholder="Street">
+                 placeholder="Street"
+                 [readonly]="!editingEnabled">
         </label>
       </mat-form-field>
 
@@ -52,7 +57,8 @@
           <input matInput [(ngModel)]="contact.city"
                  type="text"
                  required maxlength="=12"
-                 placeholder="City">
+                 placeholder="City"
+                 [readonly]="!editingEnabled">
         </label>
       </mat-form-field>
 
@@ -61,7 +67,8 @@
           <input matInput [(ngModel)]="contact.postalCode"
                  type="text"
                  required maxlength="=12"
-                 placeholder="Postal Code">
+                 placeholder="Postal Code"
+                 [readonly]="!editingEnabled">
         </label>
       </mat-form-field>
 
@@ -70,7 +77,8 @@
           <input matInput [(ngModel)]="contact.country"
                  type="text"
                  required maxlength="=12"
-                 placeholder="Country">
+                 placeholder="Country"
+                 [readonly]="!editingEnabled">
         </label>
       </mat-form-field>
 
