@@ -72,6 +72,7 @@ export class ContactDetailComponent implements OnInit {
       this.contactService.createContact(this.contact).subscribe(response => {
         console.log(response);
         this.router.navigate(['/contacts']);
+        this.snackBar.open('Contact created', 'OK', {duration: 3000});
       });
     } else {
       this.contactService.updateContact(this.contact).subscribe(response => {
