@@ -3,7 +3,6 @@ import {Contact} from '../contact';
 import {ContactService} from '../services/contact.service';
 import {Router} from '@angular/router';
 import {ToolbarOptions} from '../toolbar/toolbar-options';
-import {ToolbarAction} from '../toolbar/toolbar-action';
 import {ToolbarService} from '../services/toolbar-service';
 
 @Component({
@@ -42,8 +41,8 @@ export class ContactListComponent implements OnInit {
       this.contacts = response;
       console.log(response);
     });
-    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Contacts',
-      [new ToolbarAction(this.onEdit.bind(this), 'icon')]));
+    this.toolbar.setToolbarOptions(new ToolbarOptions(false, 'Contacts App',
+      []));
   }
 
   OnEdit() {

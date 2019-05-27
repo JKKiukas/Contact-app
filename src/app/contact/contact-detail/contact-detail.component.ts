@@ -24,6 +24,7 @@ export class ContactDetailComponent implements OnInit {
 
   ngOnInit() {
     this.contactId = this.route.snapshot.params.id;
+    console.log(this.contactId);
     let toolbarActions: ToolbarAction[];
 
     if (isNaN(this.contactId)) {
