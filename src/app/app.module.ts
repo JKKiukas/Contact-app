@@ -12,7 +12,7 @@ import {
   MatCardModule,
   MatButtonToggleModule,
   MatIconModule,
-  MatSidenavModule, MatDividerModule, MatListModule
+  MatSidenavModule, MatDividerModule, MatListModule, MatSnackBarModule
 } from '@angular/material';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -59,7 +59,8 @@ const appRoutes: Routes = [
     MatIconModule,
     MatSidenavModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSnackBarModule
   ],
 
   providers: [

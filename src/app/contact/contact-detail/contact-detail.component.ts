@@ -5,6 +5,7 @@ import {ContactService} from '../services/contact.service';
 import {ToolbarService} from '../services/toolbar-service';
 import {ToolbarOptions} from '../toolbar/toolbar-options';
 import {ToolbarAction} from '../toolbar/toolbar-action';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'dtca-contact-detail',
@@ -17,7 +18,7 @@ export class ContactDetailComponent implements OnInit {
   editingEnabled: boolean;
 
   constructor(private router: Router, private  route: ActivatedRoute,
-              private contactService: ContactService, private  toolbar: ToolbarService) {
+              private contactService: ContactService, private  toolbar: ToolbarService, public snackBar: MatSnackBar) {
     this.contact = new Contact();
     this.editingEnabled = false;
   }
@@ -37,7 +38,7 @@ export class ContactDetailComponent implements OnInit {
       });
     }
 
-    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contacts', toolbarActions));
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact', toolbarActions));
   }
 
   onEdit() {
@@ -55,13 +56,14 @@ export class ContactDetailComponent implements OnInit {
       // console.log('Edit mode disabled');
       toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
     }
-    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contacts', toolbarActions));
+    this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Edit contact', toolbarActions));
   }
 
   onDelete() {
     this.editingEnabled = false;
     this.contactService.deleteContact(this.contact).subscribe(() => {
       this.router.navigate(['/contacts']);
+      this.snackBar.open('Contact deleted', 'OK', {duration: 3000});
     });
   }
 
@@ -75,6 +77,7 @@ export class ContactDetailComponent implements OnInit {
       this.contactService.updateContact(this.contact).subscribe(response => {
         this.contact = response;
         this.editingEnabled = false;
+        this.snackBar.open('Contact modified', 'OK', {duration: 3000});
       });
     }
   }
