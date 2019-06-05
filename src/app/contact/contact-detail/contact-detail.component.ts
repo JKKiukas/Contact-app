@@ -45,15 +45,11 @@ export class ContactDetailComponent implements OnInit {
     let toolbarActions: ToolbarAction[];
     this.editingEnabled = !this.editingEnabled;
     if (this.editingEnabled === true) {
-      // Edit mode on
-      // console.log('Edit mode enabled');
       toolbarActions = [
         new ToolbarAction(this.onDelete.bind(this), 'delete'),
         new ToolbarAction(this.onEdit.bind(this), 'edit')
       ];
     } else {
-      // Edit mode off
-      // console.log('Edit mode disabled');
       toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
     }
     this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Edit contact', toolbarActions));
@@ -68,6 +64,7 @@ export class ContactDetailComponent implements OnInit {
   }
 
   onSave() {
+    console.log('Save:' + this.contactId);
     if (isNaN(this.contactId)) {
       this.contactService.createContact(this.contact).subscribe(response => {
         console.log(response);
@@ -83,39 +80,3 @@ export class ContactDetailComponent implements OnInit {
     }
   }
 }
-
-// let toolbarActions: ToolbarAction[];
-
-// if (this.contactId == null) {
-// Create contact
-// this.editingEnabled = true;
-// toolbarActions = [];
-// } else {
-// View /Edit contact
-// toolbarActions = [new ToolbarAction(this.onEdit.bind(this), 'edit')];
-
-// this.contactService.getContactById(this.contactId).subscribe(response => {
-// this.contact = response;
-// console.log(this.contact);
-// }, error => {
-// console.error('Getting contact failed.');
-// console.error(error);
-// this.router.navigate(['/contacts']);
-// });
-// }
-
-// this.toolbar.setToolbarOptions(new ToolbarOptions(true, 'Contact',
-//  [new ToolbarAction(this.onEdit(), 'edit')]));
-// this.contactService.getContactById(this.contactId).subscribe(response => {
-//  this.contact = response;
-//  console.log(this.contact);
-// });
-// }
-
-// onDelete() {
-//  this.editingEnabled = false;
-//  this.contactService.deleteContact(this.contact).subscribe(() => {
-//    this.router.navigate(['/contacts']);
-//  });
-// }
-// }

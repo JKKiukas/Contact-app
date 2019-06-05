@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact';
 import {ContactService} from '../services/contact.service';
 import {Router} from '@angular/router';
@@ -22,20 +22,7 @@ export class ContactListComponent implements OnInit {
     this.selectedContactName = '';
   }
 
-  // onContactSelected(contact: Contact): void {
-  // console.log(contact);
-    // this.selectedContactName = contact.firstName + ' ' + contact.lastName + ' ' + contact.phoneNumber;
-    // alert(contact.firstName + ' ' + contact.lastName + ' ' + contact.phoneNumber);
-    // console.log(this.router.navigate(['/contacts', contact.id]));
-    // this.router.navigate(['/contacts', contact.id]);
-  // console.log(this.router.navigate(['/contacts', contact.id]));
-  // this.router.navigate(['/contacts', contact.id]);
-  // }
-
-
   ngOnInit() {
-    // this.contacts = this.contactService.get();
-    // console.log(this.contacts);
 
     this.contactService.get().subscribe(response => {
       this.contacts = response;

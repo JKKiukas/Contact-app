@@ -19,28 +19,6 @@ export class ContactHttpService {
     // this.url = `${environment.endpointUrl}contacts`;
   }
 
-  // get() {
-  // return this.http.get(this.url).subscribe((data) => {
-  // console.log(data);
-  // });
-
-  // get(): Observable<Contact[]> {
-  // return this.http.get<Contact[]>(this.url)
-  // .pipe(
-  // map(contacts => {
-  // return contacts as Contact[];
-  // })
-  // );
-
-  // get() {
-  // return this.httpClient.get<Contact[]>(this.url)
-  // .pipe(
-  // map(contacts => {
-  // return contacts as Contact[];
-  // })
-  // );
-  // }
-
   get(): Observable<Contact[]> {
     return this.httpClient.get(this.url).pipe(map(response => {
       return response as Contact[];

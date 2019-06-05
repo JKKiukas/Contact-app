@@ -22,19 +22,9 @@
         </label>
       </mat-form-field>
 
-      <!--<mat-form-field>
-        <label>
-          <input matInput [(ngModel)]="contact.id"
-                 type="text"
-                 required maxlength="=12"
-                 placeholder="id"
-                 [readonly]="!editingEnabled">
-        </label>
-      </mat-form-field>-->
-
       <mat-form-field>
         <label>
-          <input matInput [(ngModel)]="contact.eMail"
+          <input matInput [(ngModel)]="contact.emailAddress"
                  type="text"
                  required maxlength="12"
                  placeholder="eMail"
@@ -54,7 +44,7 @@
 
       <mat-form-field>
         <label>
-          <input matInput [(ngModel)]="contact.street"
+          <input matInput [(ngModel)]="contact.streetAddress"
                  type="text"
                  required maxlength="12"
                  placeholder="Street"
@@ -82,16 +72,6 @@
         </label>
       </mat-form-field>
 
-      <mat-form-field>
-        <label>
-          <input matInput [(ngModel)]="contact.country"
-                 type="text"
-                 required maxlength="12"
-                 placeholder="Country"
-                 [readonly]="!editingEnabled">
-        </label>
-      </mat-form-field>
-
       <div>
         Fields marked with * must be filled.
       </div>
@@ -101,8 +81,3 @@
     <i class="material-icons">check</i>
   </button>
 </mat-card>
-
-
-
-
-
