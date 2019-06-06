@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   // endpointUrl: 'http://localhost:3000/'
-  endpointUrl: 'https://digitradecontacs2019.azurewebsites.net/api/'
+  // endpointUrl: 'https://digitradecontacs2019.azurewebsites.net/api/'
+  // endpointUrl: 'https://localhost:44300/api/'
+  endpointUrl: 'https://contactwebapi2019.azurewebsites.net/api/'
 };
 
 /*

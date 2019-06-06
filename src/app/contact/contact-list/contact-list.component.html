@@ -1,4 +1,3 @@
-<mat-card>
 <mat-card
   *ngFor="let c of contacts" fxLayout="row" fxLayoutAlign="left middle" class="text-style">
   <ngx-avatar name="{{c.firstName}} {{c.lastName}}"></ngx-avatar>
@@ -10,8 +9,6 @@
   </mat-nav-list>
 </mat-card>
 
-<p></p>
-
-<button mat-fab color="accent" (click)="onCreateNew()"><i class="material-icons">add</i>
+<button mat-fab color="accent" (click)="onCreateNew()" class="cw-fab"><i class="material-icons">add</i>
 </button>
-</mat-card>
+
